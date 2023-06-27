@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-邮件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/27/%E9%82%AE%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2023-06-27T06:47:37.592Z" itemprop="datePublished">2023-06-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaMail邮件发送"><a href="#JavaMail邮件发送" class="headerlink" title="JavaMail邮件发送"></a>JavaMail邮件发送</h1><h2 id="发送邮件的maven依赖"><a href="#发送邮件的maven依赖" class="headerlink" title="发送邮件的maven依赖"></a>发送邮件的maven依赖</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line"> &lt;groupId&gt;javax.mail&lt;/groupId&gt;</span><br><span class="line"> &lt;artifactId&gt;mail&lt;/artifactId&gt;</span><br><span class="line"> &lt;version&gt;<span class="number">1.4</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="发送代码"><a href="#发送代码" class="headerlink" title="发送代码"></a>发送代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.security.Security;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"><span class="keyword">import</span> javax.mail.Authenticator;</span><br><span class="line"><span class="keyword">import</span> javax.mail.Message;</span><br><span class="line"><span class="keyword">import</span> javax.mail.PasswordAuthentication;</span><br><span class="line"><span class="keyword">import</span> javax.mail.Session;</span><br><span class="line"><span class="keyword">import</span> javax.mail.Transport;</span><br><span class="line"><span class="keyword">import</span> javax.mail.internet.InternetAddress;</span><br><span class="line"><span class="keyword">import</span> javax.mail.internet.MimeMessage;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MailClient</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">final</span> <span class="type">String</span> <span class="variable">SSL_FACTORY</span> <span class="operator">=</span> <span class="string">&quot;javax.net.ssl.SSLSocketFactory&quot;</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//配置邮箱信息</span></span><br><span class="line">      <span class="type">Properties</span> <span class="variable">props</span> <span class="operator">=</span> System.getProperties();</span><br><span class="line">      <span class="comment">//邮件服务器</span></span><br><span class="line">      props.setProperty(<span class="string">&quot;mail.smtp.host&quot;</span>, <span class="string">&quot;smtp.qq.com&quot;</span>);</span><br><span class="line">      props.setProperty(<span class="string">&quot;mail.smtp.socketFactory.class&quot;</span>, SSL_FACTORY);</span><br><span class="line">      props.setProperty(<span class="string">&quot;mail.smtp.socketFactory.fallback&quot;</span>, <span class="string">&quot;false&quot;</span>);</span><br><span class="line">      <span class="comment">//邮件服务器端口</span></span><br><span class="line">      props.setProperty(<span class="string">&quot;mail.smtp.port&quot;</span>, <span class="string">&quot;465&quot;</span>);</span><br><span class="line">      props.setProperty(<span class="string">&quot;mail.smtp.socketFactory.port&quot;</span>, <span class="string">&quot;465&quot;</span>);</span><br><span class="line">      <span class="comment">//鉴权信息</span></span><br><span class="line">      props.setProperty(<span class="string">&quot;mail.smtp.auth&quot;</span>, <span class="string">&quot;true&quot;</span>);</span><br><span class="line">      <span class="comment">//建立邮件会话</span></span><br><span class="line">      <span class="type">Session</span> <span class="variable">session</span> <span class="operator">=</span> Session.getDefaultInstance(props, <span class="keyword">new</span> <span class="title class_">Authenticator</span>() &#123;</span><br><span class="line">        <span class="comment">//身份认证</span></span><br><span class="line">        <span class="keyword">protected</span> PasswordAuthentication <span class="title function_">getPasswordAuthentication</span><span class="params">()</span> &#123;</span><br><span class="line">          <span class="comment">//1.账户 授权码</span></span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PasswordAuthentication</span>(<span class="string">&quot;xxxxxxx@qq.com&quot;</span>, <span class="string">&quot;xxxx&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="comment">//建立邮件对象</span></span><br><span class="line">      <span class="type">MimeMessage</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MimeMessage</span>(session);</span><br><span class="line">      <span class="comment">//设置邮件的发件人</span></span><br><span class="line">      message.setFrom(<span class="keyword">new</span> <span class="title class_">InternetAddress</span>(<span class="string">&quot;xxxxxxx@qq.com&quot;</span>));</span><br><span class="line">      <span class="comment">//2.设置邮件的收件人</span></span><br><span class="line">      message.setRecipients(Message.RecipientType.TO, <span class="string">&quot;xxxxxxx@qq.com&quot;</span>);</span><br><span class="line">      <span class="comment">//设置邮件的主题</span></span><br><span class="line">      message.setSubject(<span class="string">&quot;通过javamail发出！！！&quot;</span>);</span><br><span class="line">      <span class="comment">//文本部分</span></span><br><span class="line">      message.setContent(<span class="string">&quot;文本邮件测试&quot;</span>, <span class="string">&quot;text/html;charset=UTF-8&quot;</span>);</span><br><span class="line">      message.saveChanges();</span><br><span class="line">      <span class="comment">//发送邮件</span></span><br><span class="line">      Transport.send(message);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/27/%E9%82%AE%E4%BB%B6/" data-id="cljdxf6ru000cp4w8cdyf7jfm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-网络编程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/27/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2023-06-27T06:47:37.588Z" itemprop="datePublished">2023-06-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h1><h2 id="爬取网站或者API"><a href="#爬取网站或者API" class="headerlink" title="爬取网站或者API"></a>爬取网站或者API</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- https:<span class="comment">//mvnrepository.com/artifact/com.squareup.okhttp3/okhttp --&gt;</span></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line"> &lt;groupId&gt;com.squareup.okhttp3&lt;/groupId&gt;</span><br><span class="line"> &lt;artifactId&gt;okhttp&lt;/artifactId&gt;</span><br><span class="line"> &lt;version&gt;<span class="number">4.1</span><span class="number">.0</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.youkeda.test.http;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> okhttp3.Call;</span><br><span class="line"><span class="keyword">import</span> okhttp3.OkHttpClient;</span><br><span class="line"><span class="keyword">import</span> okhttp3.Request;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GetPage</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据输入的url，读取页面内容并返回</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getContent</span><span class="params">(String url)</span> &#123;</span><br><span class="line">        <span class="comment">//实例化OkHttpClient</span></span><br><span class="line">        <span class="type">OkHttpClient</span> <span class="variable">okHttpClient</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OkHttpClient</span>();</span><br><span class="line">        <span class="comment">//实例化一个请求，实例化Request对象，定义请求的各种参数</span></span><br><span class="line">        <span class="type">Request</span> <span class="variable">request</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Request</span>.Builder().url(url).build();</span><br><span class="line">        <span class="comment">//构建调用对象</span></span><br><span class="line">        <span class="type">Call</span> <span class="variable">call</span> <span class="operator">=</span> okHttpClient.newCall(request);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 返回结果字符串</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//变化成字符串打印出来</span></span><br><span class="line">            result = call.execute().body().string();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;request &quot;</span> + url + <span class="string">&quot;error.&quot;</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        GetPage getPage=<span class="keyword">new</span> <span class="title class_">GetPage</span>();</span><br><span class="line">        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;https://ipservice.3g.163.com/ip&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span>getPage.getContent(url);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;API调用结果&quot;</span>);</span><br><span class="line">        System.out.println(content);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="post表单"><a href="#post表单" class="headerlink" title="post表单"></a>post表单</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.youkeda.test.http;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> okhttp3.Call;</span><br><span class="line"><span class="keyword">import</span> okhttp3.OkHttpClient;</span><br><span class="line"><span class="keyword">import</span> okhttp3.Request;</span><br><span class="line"><span class="keyword">import</span> okhttp3.FormBody;</span><br><span class="line"><span class="keyword">import</span> okhttp3.FormBody.Builder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FormPoster</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">postContent</span><span class="params">(String url, Map&lt;String, String&gt; formData)</span> &#123;</span><br><span class="line">    <span class="comment">// okHttpClient 实例</span></span><br><span class="line">    <span class="type">OkHttpClient</span> <span class="variable">okHttpClient</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OkHttpClient</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//post方式提交的数据</span></span><br><span class="line">    <span class="type">Builder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FormBody</span>.Builder();</span><br><span class="line">    <span class="comment">// 放入表单数据</span></span><br><span class="line">    <span class="keyword">for</span> (String key : formData.keySet()) &#123;</span><br><span class="line">      builder.add(key, formData.get(key));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 构建 FormBody 对象</span></span><br><span class="line">    <span class="type">FormBody</span> <span class="variable">formBody</span> <span class="operator">=</span> builder.build();</span><br><span class="line">    <span class="comment">// 指定 post 方式提交FormBody</span></span><br><span class="line">    <span class="type">Request</span> <span class="variable">request</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Request</span>.Builder()</span><br><span class="line">            .url(url)</span><br><span class="line">            <span class="comment">// addHeader(&quot;Referer&quot;, ...) 这个知识点在后面的章节中学到，目前不要纠结</span></span><br><span class="line">            .addHeader(<span class="string">&quot;Referer&quot;</span>, <span class="string">&quot;https://www.taobao.com&quot;</span>)</span><br><span class="line">            .post(formBody)</span><br><span class="line">            .build();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用client去请求</span></span><br><span class="line">    <span class="type">Call</span> <span class="variable">call</span> <span class="operator">=</span> okHttpClient.newCall(request);</span><br><span class="line">    <span class="comment">// 返回结果字符串</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">// 获得返回结果</span></span><br><span class="line">      result = call.execute().body().string();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">      <span class="comment">// 抓取异常</span></span><br><span class="line">      System.out.println(<span class="string">&quot;request &quot;</span> + url + <span class="string">&quot; error . &quot;</span>);</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;http://tcc.taobao.com/cc/json/mobile_tel_segment.htm&quot;</span>;</span><br><span class="line">    Map&lt;String, String&gt; formData = <span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line">    formData.put(<span class="string">&quot;tel&quot;</span>, <span class="string">&quot;17177466748&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">FormPoster</span> <span class="variable">poster</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FormPoster</span>();</span><br><span class="line">    <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> poster.postContent(url, formData);</span><br><span class="line">  </span><br><span class="line">    System.out.println(<span class="string">&quot;API调用结果&quot;</span>);</span><br><span class="line">    System.out.println(content);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="POST-JSON数据"><a href="#POST-JSON数据" class="headerlink" title="POST JSON数据"></a>POST JSON数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.youkeda.test.http;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> okhttp3.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JsonPoster</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> MediaType JSON_TYPE=MediaType.parse(<span class="string">&quot;application/json; charset=utf-8&quot;</span>);</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 向指定的 url 提交数据，以 json 的方式</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">postContent</span><span class="params">(String url, Map&lt;String, String&gt; datas)</span> &#123;</span><br><span class="line">    <span class="comment">// okHttpClient 实例</span></span><br><span class="line">    <span class="type">OkHttpClient</span> <span class="variable">okHttpClient</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OkHttpClient</span>();</span><br><span class="line"></span><br><span class="line">    String param= JSON.toJSONString(datas);</span><br><span class="line">    <span class="comment">// 数据对象转换成 json 格式字符串</span></span><br><span class="line">    RequestBody requestBody=RequestBody.create(JSON_TYPE,param);</span><br><span class="line">    <span class="comment">//post方式提交的数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="type">Request</span> <span class="variable">request</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Request</span>.Builder().url(url).post(requestBody).build();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用client去请求</span></span><br><span class="line">    <span class="type">Call</span> <span class="variable">call</span> <span class="operator">=</span> okHttpClient.newCall(request);</span><br><span class="line">    <span class="comment">// 返回结果字符串</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">// 获得返回结果</span></span><br><span class="line">      result = call.execute().body().string();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">      <span class="comment">// 抓取异常</span></span><br><span class="line">      System.out.println(<span class="string">&quot;request &quot;</span> + url + <span class="string">&quot; error . &quot;</span>);</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;https://www.fastmock.site/mock/3d95acf3f26358ef032d8a23bfdead99/api/posts&quot;</span>;</span><br><span class="line">    JsonPoster poster=<span class="keyword">new</span> <span class="title class_">JsonPoster</span>();</span><br><span class="line">    Map&lt;String, String&gt; data= <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    data.put(<span class="string">&quot;num&quot;</span>,<span class="string">&quot;20190101&quot;</span>);</span><br><span class="line">    data.put(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;王陆&quot;</span>);</span><br><span class="line">    data.put(<span class="string">&quot;gender&quot;</span>,<span class="string">&quot;男&quot;</span>);</span><br><span class="line">    data.put(<span class="string">&quot;faculty&quot;</span>,<span class="string">&quot;灵剑派&quot;</span>);</span><br><span class="line">    data.put(<span class="string">&quot;discipline&quot;</span>,<span class="string">&quot;无相剑骨&quot;</span>);</span><br><span class="line">    data.put(<span class="string">&quot;class&quot;</span>,<span class="string">&quot;一年一班&quot;</span>);</span><br><span class="line">    data.put(<span class="string">&quot;startYear&quot;</span>,<span class="string">&quot;2019&quot;</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> poster.postContent(url,data);</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;API调用结果&quot;</span>);</span><br><span class="line">    System.out.println(content);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/27/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" data-id="cljdxf6rt000ap4w89ble6zw5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-天气邮件推送" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/27/%E5%A4%A9%E6%B0%94%E9%82%AE%E4%BB%B6%E6%8E%A8%E9%80%81/" class="article-date">
+  <time class="dt-published" datetime="2023-06-27T06:47:37.585Z" itemprop="datePublished">2023-06-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="天气邮件推送"><a href="#天气邮件推送" class="headerlink" title="天气邮件推送"></a>天气邮件推送</h1><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;com.squareup.okhttp3&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;okhttp&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;<span class="number">4.1</span><span class="number">.0</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;javax.mail&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mail&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;<span class="number">1.4</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;fastjson&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;<span class="number">1.2</span><span class="number">.62</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;commons-lang3&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;<span class="number">3.9</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Mail-java"><a href="#Mail-java" class="headerlink" title="Mail.java"></a>Mail.java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.youkeda.test.j3.c9;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.security.Security;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"><span class="keyword">import</span> javax.mail.Authenticator;</span><br><span class="line"><span class="keyword">import</span> javax.mail.Message;</span><br><span class="line"><span class="keyword">import</span> javax.mail.PasswordAuthentication;</span><br><span class="line"><span class="keyword">import</span> javax.mail.Session;</span><br><span class="line"><span class="keyword">import</span> javax.mail.Transport;</span><br><span class="line"><span class="keyword">import</span> javax.mail.internet.InternetAddress;</span><br><span class="line"><span class="keyword">import</span> javax.mail.internet.MimeMessage;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Mail</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">SSL_FACTORY</span> <span class="operator">=</span> <span class="string">&quot;javax.net.ssl.SSLSocketFactory&quot;</span>;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Properties</span> <span class="variable">props</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span>发件人信箱</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">FROM_MAIL</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span>发件人信箱安全key</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">FROM_MAIL_KEY</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span>收件人信箱</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">TO_MAIL</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 在构造函数中初始化相关的参数。这是固定用法。</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">Mail</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 设置SSL连接、邮件环境</span></span><br><span class="line">    props = System.getProperties();</span><br><span class="line">    props.setProperty(<span class="string">&quot;mail.smtp.host&quot;</span>, <span class="string">&quot;smtp.qq.com&quot;</span>);</span><br><span class="line">    props.setProperty(<span class="string">&quot;mail.smtp.socketFactory.class&quot;</span>, SSL_FACTORY);</span><br><span class="line">    props.setProperty(<span class="string">&quot;mail.smtp.socketFactory.fallback&quot;</span>, <span class="string">&quot;false&quot;</span>);</span><br><span class="line">    props.setProperty(<span class="string">&quot;mail.smtp.port&quot;</span>, <span class="string">&quot;465&quot;</span>);</span><br><span class="line">    props.setProperty(<span class="string">&quot;mail.smtp.socketFactory.port&quot;</span>, <span class="string">&quot;465&quot;</span>);</span><br><span class="line">    props.setProperty(<span class="string">&quot;mail.smtp.auth&quot;</span>, <span class="string">&quot;true&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 发送邮件</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> subject</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> content</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sendMail</span><span class="params">(String subject, String content)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">// 建立邮件会话</span></span><br><span class="line">      <span class="type">Session</span> <span class="variable">session</span> <span class="operator">=</span> Session.getDefaultInstance(props, <span class="keyword">new</span> <span class="title class_">Authenticator</span>() &#123;</span><br><span class="line">        <span class="comment">// 身份认证</span></span><br><span class="line">        <span class="keyword">protected</span> PasswordAuthentication <span class="title function_">getPasswordAuthentication</span><span class="params">()</span> &#123;</span><br><span class="line">          <span class="comment">// 账户 授权码</span></span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PasswordAuthentication</span>(FROM_MAIL, FROM_MAIL_KEY);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 建立邮件对象</span></span><br><span class="line">      <span class="type">MimeMessage</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MimeMessage</span>(session);</span><br><span class="line">      <span class="comment">// 设置邮件的发件人、收件人、主题</span></span><br><span class="line">      <span class="comment">// 附带发件人名字</span></span><br><span class="line">      message.setFrom(<span class="keyword">new</span> <span class="title class_">InternetAddress</span>(FROM_MAIL));</span><br><span class="line">      message.setRecipients(Message.RecipientType.TO, TO_MAIL);</span><br><span class="line">      message.setSubject(subject);</span><br><span class="line">      <span class="comment">// 文本部分</span></span><br><span class="line">      message.setContent(content, <span class="string">&quot;text/html;charset=UTF-8&quot;</span>);</span><br><span class="line">      message.saveChanges();</span><br><span class="line">      <span class="comment">// 发送邮件</span></span><br><span class="line">      Transport.send(message);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>WeatherNotice.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.youkeda.test.j3.c9;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> com.youkeda.test.j3.c9.model.Weather;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDate;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WeatherNotice</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">WeatherPicker</span> <span class="variable">wp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">WeatherPicker</span>();</span><br><span class="line">    <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> wp.pick();</span><br><span class="line">    <span class="type">Weather</span> <span class="variable">weather</span> <span class="operator">=</span> JSON.parseObject(content, Weather.class);</span><br><span class="line">    <span class="type">String</span> <span class="variable">cityName</span> <span class="operator">=</span> weather.getWeatherinfo().getCity();</span><br><span class="line">    <span class="type">String</span> <span class="variable">temp</span> <span class="operator">=</span> weather.getWeatherinfo().getTemp();</span><br><span class="line">    <span class="type">String</span> <span class="variable">time</span> <span class="operator">=</span> weather.getWeatherinfo().getTime();</span><br><span class="line">    <span class="type">LocalDate</span> <span class="variable">today</span> <span class="operator">=</span> LocalDate.now();</span><br><span class="line">    <span class="type">String</span> <span class="variable">todayStr</span> <span class="operator">=</span> today.toString();</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">title</span> <span class="operator">=</span> <span class="string">&quot;天气报告&quot;</span>;</span><br><span class="line">    <span class="type">String</span> <span class="variable">mailContent</span> <span class="operator">=</span> cityName + <span class="string">&quot;，&quot;</span> + todayStr + <span class="string">&quot; &quot;</span> + time + <span class="string">&quot;，气温：&quot;</span> + temp + <span class="string">&quot;摄氏度。&quot;</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="type">Double</span> <span class="variable">tempNum</span> <span class="operator">=</span> Double.valueOf(temp);</span><br><span class="line">      <span class="keyword">if</span> (tempNum &lt;= <span class="number">20</span>) &#123;</span><br><span class="line">        mailContent += <span class="string">&quot;请注意保暖。&quot;</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tempNum &gt;= <span class="number">35</span>) &#123;</span><br><span class="line">        mailContent += <span class="string">&quot;请注意防暑。&quot;</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        mailContent += <span class="string">&quot;请注意天气变化。&quot;</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="type">Mail</span> <span class="variable">mail</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Mail</span>();</span><br><span class="line">      mail.sendMail(title, mailContent);</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">&quot;Send complete&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>WeatherPicker.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.youkeda.test.j3.c9;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> okhttp3.Call;</span><br><span class="line"><span class="keyword">import</span> okhttp3.OkHttpClient;</span><br><span class="line"><span class="keyword">import</span> okhttp3.Request;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WeatherPicker</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// okHttpClient 实例</span></span><br><span class="line">  <span class="keyword">private</span> OkHttpClient okHttpClient;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">WeatherPicker</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">//1. 构建 okHttpClient 实例</span></span><br><span class="line">    okHttpClient = <span class="keyword">new</span> <span class="title class_">OkHttpClient</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 根据输入的url，读取页面内容并返回</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">private</span> String <span class="title function_">getPageContentSync</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="comment">// 参数判断，未输入参数则直接返回</span></span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(url)) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.定义一个request</span></span><br><span class="line">    <span class="type">Request</span> <span class="variable">request</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Request</span>.Builder().url(url).build();</span><br><span class="line">    <span class="comment">//3.使用client去请求</span></span><br><span class="line">    <span class="type">Call</span> <span class="variable">call</span> <span class="operator">=</span> okHttpClient.newCall(request);</span><br><span class="line">    <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">//4.获得返回结果</span></span><br><span class="line">      result = call.execute().body().string();</span><br><span class="line">      System.out.println(<span class="string">&quot;call &quot;</span> + url + <span class="string">&quot; , content&#x27;s size=&quot;</span> + result.length());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;request &quot;</span> + url + <span class="string">&quot; error . &quot;</span>);</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">pick</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> getPageContentSync(<span class="string">&quot;http://www.weather.com.cn/data/sk/101210106.html&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> content;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">pick</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> getPageContentSync(url);</span><br><span class="line">    <span class="keyword">return</span> content;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/27/%E5%A4%A9%E6%B0%94%E9%82%AE%E4%BB%B6%E6%8E%A8%E9%80%81/" data-id="cljdxf6rr0008p4w88v9w5891" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/26/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2023-06-26T13:28:58.860Z" itemprop="datePublished">2023-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/26/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/26/hello-world/" data-id="cljdka3bs0000e4w81rsmc2tm" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/27/%E5%AE%9E%E6%88%98%E9%9F%B3%E4%B9%90%E8%AF%84%E8%AE%BA%E5%88%86%E6%9E%90/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/27/%E8%AF%BB%E6%96%87%E4%BB%B6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/27/p3-%E5%AE%9E%E6%88%98%E4%BC%98%E8%AF%BE%E8%BE%BEapp%E9%A1%B9%E7%9B%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/27/p3-web%E8%BF%9B%E9%98%B6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/27/P3-HTML/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

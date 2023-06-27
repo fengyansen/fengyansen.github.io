@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="实战音乐评论分析需求梳理1234567自动查询某个歌手的所有热门歌曲自动获取，每一首歌的基础信息，专辑信息自动获取每一首歌的热门评论，最新评论对所有的热门评论进行统计形成词云  需求分析模型+服务适合很多Java程序的场景，是一种通用的思路 对歌单数据分析，可以得出关键模型歌单 数据 完成数据爬取，需要搭配的服务歌单服务（接口） 歌单服务（实现类） 概要设计完成模型+服务的整体结构  servic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/06/27/%E5%AE%9E%E6%88%98%E9%9F%B3%E4%B9%90%E8%AF%84%E8%AE%BA%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="实战音乐评论分析需求梳理1234567自动查询某个歌手的所有热门歌曲自动获取，每一首歌的基础信息，专辑信息自动获取每一首歌的热门评论，最新评论对所有的热门评论进行统计形成词云  需求分析模型+服务适合很多Java程序的场景，是一种通用的思路 对歌单数据分析，可以得出关键模型歌单 数据 完成数据爬取，需要搭配的服务歌单服务（接口） 歌单服务（实现类） 概要设计完成模型+服务的整体结构  servic">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://style.youkeda.com/img/ham/course/j12/2-2-1.svg">
+<meta property="article:published_time" content="2023-06-27T06:47:37.719Z">
+<meta property="article:modified_time" content="2023-04-18T07:39:02.916Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://style.youkeda.com/img/ham/course/j12/2-2-1.svg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-实战音乐评论分析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/27/%E5%AE%9E%E6%88%98%E9%9F%B3%E4%B9%90%E8%AF%84%E8%AE%BA%E5%88%86%E6%9E%90/" class="article-date">
+  <time class="dt-published" datetime="2023-06-27T06:47:37.719Z" itemprop="datePublished">2023-06-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="实战音乐评论分析"><a href="#实战音乐评论分析" class="headerlink" title="实战音乐评论分析"></a>实战音乐评论分析</h1><h1 id="需求梳理"><a href="#需求梳理" class="headerlink" title="需求梳理"></a>需求梳理</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">自动查询某个歌手的所有热门歌曲</span><br><span class="line"></span><br><span class="line">自动获取，每一首歌的基础信息，专辑信息</span><br><span class="line"></span><br><span class="line">自动获取每一首歌的热门评论，最新评论</span><br><span class="line"></span><br><span class="line">对所有的热门评论进行统计形成词云</span><br></pre></td></tr></table></figure>
+
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p><u>模型+服务适合很多Java程序的场景，是一种通用的思路</u></p>
+<h3 id="对歌单数据分析，可以得出关键模型"><a href="#对歌单数据分析，可以得出关键模型" class="headerlink" title="对歌单数据分析，可以得出关键模型"></a>对歌单数据分析，可以得出关键模型</h3><p><code>歌单</code></p>
+<p><code>数据</code></p>
+<h3 id="完成数据爬取，需要搭配的服务"><a href="#完成数据爬取，需要搭配的服务" class="headerlink" title="完成数据爬取，需要搭配的服务"></a>完成数据爬取，需要搭配的服务</h3><p><code>歌单服务（接口）</code></p>
+<p><code>歌单服务（实现类）</code></p>
+<h2 id="概要设计"><a href="#概要设计" class="headerlink" title="概要设计"></a>概要设计</h2><p>完成<code>模型+服务</code>的整体结构</p>
+<p><img src="https://style.youkeda.com/img/ham/course/j12/2-2-1.svg"></p>
+<p><code>service</code>包存放服务接口，其子包<code>impl</code>存放服务实现类</p>
+<p><code>model</code>包存放模型</p>
+<h2 id="项目依赖"><a href="#项目依赖" class="headerlink" title="项目依赖"></a>项目依赖</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;com.squareup.okhttp3&lt;/groupId&gt;      </span><br><span class="line">        &lt;artifactId&gt;okhttp&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.1.0&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;com.alibaba&lt;/groupId&gt;      </span><br><span class="line">        &lt;artifactId&gt;fastjson&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.2.62&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/27/%E5%AE%9E%E6%88%98%E9%9F%B3%E4%B9%90%E8%AF%84%E8%AE%BA%E5%88%86%E6%9E%90/" data-id="cljdxf6rs0009p4w8d4t86ykg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/06/27/%E8%AF%BB%E6%96%87%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/27/%E5%AE%9E%E6%88%98%E9%9F%B3%E4%B9%90%E8%AF%84%E8%AE%BA%E5%88%86%E6%9E%90/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/27/%E8%AF%BB%E6%96%87%E4%BB%B6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/27/p3-%E5%AE%9E%E6%88%98%E4%BC%98%E8%AF%BE%E8%BE%BEapp%E9%A1%B9%E7%9B%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/27/p3-web%E8%BF%9B%E9%98%B6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/27/P3-HTML/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
